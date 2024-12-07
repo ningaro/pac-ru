@@ -32,4 +32,4 @@ jobs:
       # Шаг 5: Публикация файла pac.pac в ветку build через gh-pages
       - name: 📖 Publish pac.pac to build branch
         run: |
-          npx gh-pages --dist builds --dest . --branch build --message "Update pac"
+          npx gh-pages --dist build --dest . --branch build --message "Update pac"
