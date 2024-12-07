@@ -32,4 +32,7 @@ jobs:
       # Шаг 5: Публикация файла pac.pac в ветку build через gh-pages
       - name: 📖 Publish pac.pac to build branch
         run: |
-          npx gh-pages --dist build --dest . --branch build --message "Update pac"
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx gh-pages --dist build --dest . --branch build --message "Update pac" -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
