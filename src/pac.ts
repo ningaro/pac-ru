@@ -4,7 +4,7 @@ const PROXY =
 const DIRECT = "DIRECT;"
 
 function FindProxyForURL(url: string, host: string) {
-  if (url.includes(".ru")) {
+  if (url.includes("2ip.ru")) {
     return PROXY
   }
   return DIRECT
