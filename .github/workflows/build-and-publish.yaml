@@ -1,0 +1,34 @@
+name: Build and Publish pac.pac
+
+on:
+  push:
+    paths:
+      - "src/pac.ts" # Запускать только при изменении src/pac.ts
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Шаг 1: Клонирование репозитория
+      - name: ✍️ Checkout repository
+        uses: actions/checkout@v4
+
+      # Шаг 2: Установка Node.js
+      - name: 🥁 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "16"
+
+      # Шаг 3: Установка зависимостей
+      - name: 🧳 Install dependencies
+        run: npm install
+
+      # Шаг 4: Сборка проекта
+      - name: ⚙️ Build project
+        run: npm run build
+
+      # Шаг 5: Публикация файла pac.pac в ветку build через gh-pages
+      - name: 📖 Publish pac.pac to build branch
+        run: |
+          npx gh-pages --dist builds --dest . --branch build --message "Update pac"
