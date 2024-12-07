@@ -3,7 +3,8 @@ name: Build and Publish pac.pac
 on:
   push:
     paths:
-      - "src/pac.ts" # Запускать только при изменении src/pac.ts
+      - "src/pac.ts" # Запускать изменении src/pac.ts
+      - ".github/workflows/build-and-publish.yaml" # Запускать изменении CI/CD файла
 
 jobs:
   build-and-publish:
