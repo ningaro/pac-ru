@@ -1,0 +1,21 @@
+{
+  "name": "pac-ru",
+  "version": "1.0.0",
+  "description": "PAC (Proxy Auto-Configuration file) for Russia",
+  "main": "src/pac.ts",
+  "scripts": {
+    "style": "prettier . --write",
+    "build": "npx esbuild src/pac.ts --bundle --outfile=build/pac.pac --target=es6 --format=cjs --minify-syntax --tree-shaking=false"
+  },
+  "keywords": [
+    "pac"
+  ],
+  "author": "Ningaro",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "0.24.0",
+    "gh-pages": "^6.2.0",
+    "prettier": "3.4.2",
+    "typescript": "^5.7.2"
+  }
+}
